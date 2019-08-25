@@ -5,10 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - Pickup
   - Car
   - Despy
   - Sheriff
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -52,9 +52,9 @@ TagManager:
   - name: Environment
     uniqueID: 2383610069
     locked: 0
-  - name: Interactables
-    uniqueID: 2715762145
-    locked: 0
   - name: Player
     uniqueID: 3328449885
+    locked: 0
+  - name: Pickups
+    uniqueID: 2715762145
     locked: 0

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
@@ -26,6 +24,15 @@ public class PlayerController : MonoBehaviour {
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate() {
+    }
+
+    //OnTriggerEnter2D is called whenever this object overlaps with a trigger collider.
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Key")) {
+            other.transform.SetParent(gameObject.transform);
+            other.transform.localPosition = new Vector3(0.25f,0.25f,0);
+            other.transform.localScale = new Vector3(0.5f,0.5f,1);
+        }
     }
 
     Vector3 MoveIfPossible(Vector3 currentPosition, Vector3 direction) {
