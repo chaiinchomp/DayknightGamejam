@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 488088548050254212}
   - component: {fileID: 488088548050254214}
   - component: {fileID: 488088548050254215}
+  - component: {fileID: 1221996615841864170}
   m_Layer: 0
   m_Name: barrier
   m_TagString: Pushable
@@ -106,3 +107,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22, y: 0.12}
   m_EdgeRadius: 0
+--- !u!114 &1221996615841864170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488088548050254213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874ab9d4edcd13641b2ff3d01549ee5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canPush: 0
