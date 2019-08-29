@@ -32,6 +32,16 @@ public class PlayerController : MonoBehaviour {
             other.transform.SetParent(gameObject.transform);
             other.transform.localPosition = new Vector3(0.25f,0.25f,0);
             other.transform.localScale = new Vector3(0.5f,0.5f,1);
+        } else if (other.gameObject.CompareTag("Button")) {
+            StreetWalkButtonController buttonController = other.gameObject.GetComponent<StreetWalkButtonController>();
+            buttonController.Press();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Button")) {
+            StreetWalkButtonController buttonController = other.gameObject.GetComponent<StreetWalkButtonController>();
+            buttonController.Unpress();
         }
     }
 

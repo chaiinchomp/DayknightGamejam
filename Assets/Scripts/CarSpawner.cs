@@ -28,6 +28,7 @@ public class CarSpawner : MonoBehaviour {
         carSprite.sortingLayerName = "DynamicEnvironment";
         PositionCar(newCar);
         CarController carController = newCar.GetComponent<CarController>();
+        SetCarViewOffsets(carController, direction);
         carController.StartMoving(direction);
         Destroy(newCar, carTimeToLiveInSec);
     }
@@ -45,4 +46,15 @@ public class CarSpawner : MonoBehaviour {
             newCar.transform.parent = transform;
         }
     }
+
+    void SetCarViewOffsets(CarController carController, Vector3 direction) {
+        if (direction.Equals(Vector3.up)) {
+            carController.viewOffsetX = -0.5f;
+            carController.viewOffsetY = 0;
+        } else if (direction.Equals(Vector3.down)) {
+            carController.viewOffsetX = 0.5f;
+            carController.viewOffsetY = 0;
+        }
+    }
+
 }
