@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class CarController : MonoBehaviour {
+public class CarSpawner : MonoBehaviour {
 
     public Vector3 direction;
     public double spawnRateInMs;
