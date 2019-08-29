@@ -6,6 +6,7 @@ public class CarSpawner : MonoBehaviour {
     public Vector3 direction;
     public double spawnRateInMs;
     public GameObject carPrefab;
+    public int carTimeToLiveInSec;
 
     double lastSpawnEpoch;
 
@@ -26,6 +27,9 @@ public class CarSpawner : MonoBehaviour {
         SpriteRenderer carSprite = newCar.GetComponent<SpriteRenderer>();
         carSprite.sortingLayerName = "DynamicEnvironment";
         PositionCar(newCar);
+        CarController carController = newCar.GetComponent<CarController>();
+        carController.StartMoving(direction);
+        Destroy(newCar, carTimeToLiveInSec);
     }
 
     void PositionCar(GameObject newCar) {
