@@ -17,7 +17,5 @@ public class CrosswalkController : MonoBehaviour {
         isPassable = !buttonPressed;
         redOverlaySprites.SetActive(!buttonPressed);
         greenOverlaySprites.SetActive(buttonPressed);
-        spawner1.SetActive(!buttonPressed);
-        spawner2.SetActive(!buttonPressed);
     }
 }

@@ -16,10 +16,11 @@ public class CarController : MonoBehaviour {
 
     void MoveIfPossible() {
         Vector3 possiblePosition = gameObject.transform.position + direction;
-        Collider2D objAtDestination = Physics2D.OverlapPoint(new Vector2(possiblePosition.x + viewOffsetX, possiblePosition.y + viewOffsetY));
-        if (objAtDestination != null
-            && objAtDestination.CompareTag("Crosswalk")
-            && !objAtDestination.gameObject.GetComponent<CrosswalkController>().isPassable) {
+        Collider2D[] objsAtDestination = Physics2D.OverlapPointAll(new Vector2(possiblePosition.x + viewOffsetX, possiblePosition.y + viewOffsetY));
+
+        GameObject crosswalk = Utils.GetObjectWithTag(objsAtDestination, "Crosswalk");
+        GameObject barrier = Utils.GetObjectWithTag(objsAtDestination, "CarBlocker");
+        if ((crosswalk != null && !crosswalk.GetComponent<CrosswalkController>().isPassable) || (barrier != null)) {
             return;
         }
 

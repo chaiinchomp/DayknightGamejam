@@ -76,7 +76,7 @@ MonoBehaviour:
   greenOverlaySprites: {fileID: 4114936788737022449}
   spawner1: {fileID: 0}
   spawner2: {fileID: 0}
-  isPassable: 0
+  isPassable: 1
 --- !u!1 &4114936788526375822
 GameObject:
   m_ObjectHideFlags: 0

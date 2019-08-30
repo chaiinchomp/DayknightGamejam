@@ -7,19 +7,18 @@ public class MoveController : MonoBehaviour {
     public bool Move(Vector3 direction) {
         bool didMove = false;
         Vector3 possiblePosition = gameObject.transform.position + direction;
-        Collider2D objAtDestination = Physics2D.OverlapPoint(new Vector2(possiblePosition.x, possiblePosition.y));
+        Collider2D[] objsAtDestination = Physics2D.OverlapPointAll(new Vector2(possiblePosition.x, possiblePosition.y));
 
         // Push if possible
         bool didPush = false;
-        bool destContainsPushableObj = objAtDestination != null && objAtDestination.CompareTag("Pushable");
-        if (canPush && destContainsPushableObj) {
-            didPush = PushObject(objAtDestination.gameObject, direction);
+        GameObject pushableObj = Utils.GetObjectWithTag(objsAtDestination, "Pushable");
+        if (canPush && pushableObj != null) {
+            didPush = PushObject(pushableObj, direction);
         }
 
         // Move if possible
-        bool destContainsBlockingObj =
-                (objAtDestination != null && objAtDestination.CompareTag("Wall"))
-                || (destContainsPushableObj && !didPush);
+        GameObject blockingObj = Utils.GetObjectWithTag(objsAtDestination, "Wall");
+        bool destContainsBlockingObj = (blockingObj != null) || (pushableObj != null && !didPush);
         if (!destContainsBlockingObj) {
             gameObject.transform.SetPositionAndRotation(possiblePosition, Quaternion.identity);
             didMove = true;

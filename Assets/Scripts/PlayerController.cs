@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
         moveController = GetComponent<MoveController>();
     }
 
-    // Update is called once per frame
     void Update() {
         if (Input.GetButtonDown("Up")) {
             moveController.Move(Vector3.up);
@@ -22,11 +21,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
-    void FixedUpdate() {
-    }
-
-    //OnTriggerEnter2D is called whenever this object overlaps with a trigger collider.
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Key")) {
             other.transform.SetParent(gameObject.transform);
