@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour {
 
     void Start() {
         curGameState = GameState.TITLE;
+        titleScreenPanel.SetActive(true);
         SetPlayersEnabled(false);
     }
 
