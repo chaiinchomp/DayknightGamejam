@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Utils {
@@ -9,6 +10,10 @@ public class Utils {
             }
         }
         return null;
+    }
+
+    public static double Now() {
+        return (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalMilliseconds;
     }
 
 }

@@ -14,7 +14,7 @@ public class UnlockController : MonoBehaviour {
         }
 
         if (keyPresent && catsPresent == 2) {
-            UIController.Instance.LevelComplete();
+            GameController.Instance.LevelComplete();
         }
     }
 

@@ -21,7 +21,7 @@ public class CarController : MonoBehaviour {
         // Check for game over (player collision)
         GameObject player = Utils.GetObjectWithTag(objsAtDestination, "Player");
         if (player != null) {
-            UIController.Instance.GameOver();
+            GameController.Instance.GameOver();
         }
 
         // Check for other collisions

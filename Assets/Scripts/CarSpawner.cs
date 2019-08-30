@@ -15,7 +15,7 @@ public class CarSpawner : MonoBehaviour {
     }
 
     void Update() {
-        double now = (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalMilliseconds;
+        double now = Utils.Now();
         if (now - lastSpawnEpoch > spawnRateInMs) {
             SpawnCar();
             lastSpawnEpoch = now;
